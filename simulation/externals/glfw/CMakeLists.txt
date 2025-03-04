@@ -306,6 +306,11 @@ if (_GLFW_MIR)
     list(APPEND glfw_LIBRARIES "${XKBCOMMON_LIBRARY}")
 endif()
 
+if (WIN32)
+    list(APPEND glfw_LIBRARIES gdi32 shell32)
+    list(APPEND glfw_PKG_LIBS "-lgdi32 -lshell32")
+endif()
+
 #--------------------------------------------------------------------
 # Use Cocoa for window creation and NSOpenGL for context creation
 #--------------------------------------------------------------------

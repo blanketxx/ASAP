@@ -6,6 +6,9 @@ list(REMOVE_ITEM SOURCE ${SOURCE_DIR}/python_interface.cpp)
 
 add_executable(redmax ${HEADER} ${SOURCE})
 
+set(PYBIND11_INCLUDE_DIR "D:/python/Lib/site-packages/pybind11/include")
+include_directories(${PYBIND11_INCLUDE_DIR})
+find_package(pybind11 REQUIRED PATHS "D:/python/Lib/site-packages/pybind11/")
 pybind11_add_module(redmax_py python_interface.cpp ${HEADER} ${SOURCE})
 
 # Includes.
